@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="form.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#form2").validate({
+                rules: {
+                    name: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    comment: {
+                        required: true
+                    }
+                },
+                messages: {
+                    comment: "Please enter a comment."
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="form2 text">
+        <h1>Review</h1>
+        <form action="#">
+            Name:<br>
+            <input type="text" name="firstname" value=" ">
+            <br><br>
+            E-mail:<br>
+            <input type="email" name="email" value=" ">
+            <br><br>
+            Comments:<br>
+            <textarea name="comment" ></textarea> <br/>
+            <br><br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form> 
+    </div>
+</body>
+</html>
+
