@@ -3,44 +3,50 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="form.css">
+    
+</head>
+<body>
+    <form id="myForm" action novalidate="novalidate" method="get">
+        <div class="form-group">
+            <label for="formGroupExampleInput">Name</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" name="fname" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Email</label>
+            <input type="Email" class="form-control" id="formGroupExampleInput2" placeholder="Enter your Email">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Comments</label>
+            <textarea class="form-control" row="5" col="30" id="formGroupExampleInput3" placeholder="Enter your comments here"></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-    <script type="text/javascript" src="http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
-            $("#form2").validate({
+        $(document).ready(function(){
+            $("#myForm").validate({
                 rules: {
-                    name: "required",
+                    // simple rule, converted to {required:true}
+                    fname: "required",
+                    // compound rule
                     email: {
                         required: true,
                         email: true
                     },
-                    comment: {
-                        required: true
-                    }
+                    formGroupExampleInput3:{
+                        minlength: 200
+                    },
                 },
                 messages: {
-                    comment: "Please enter a comment."
+                    name: "Please specify your name",
+                    email: "Your email address must be in the format of name@domain.com"
                 }
             });
         });
     </script>
-</head>
-<body>
-    <div class="form2 text">
-        <h1>Review</h1>
-        <form action="#">
-            Name:<br>
-            <input type="text" name="firstname" value=" ">
-            <br><br>
-            E-mail:<br>
-            <input type="email" name="email" value=" ">
-            <br><br>
-            Comments:<br>
-            <textarea name="comment" ></textarea> <br/>
-            <br><br>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form> 
-    </div>
 </body>
 </html>
 
